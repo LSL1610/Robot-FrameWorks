@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.4 on win32)" generated="2025-03-09T14:57:57.175287" rpa="false" schemaversion="5">
+<suite id="s1" name="Comeback" source="D:\demo\TESTS\comeback.robot">
+<test id="s1-t1" name="Get All Product Info" line="39">
+<kw name="Open Chrome Browser" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:57:59.036289" level="INFO">Downloaded webdriver to: C:\Users\ADMIN\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\133.0.6943.141\chromedriver-win32/chromedriver.exe</msg>
+<msg time="2025-03-09T14:57:59.053290" level="INFO">Webdriver version taken into use: ChromeDriver 133.0.6943.141 (2a5d6da0d6165d7b107502095a937fe7704fcef6-refs/branch-heads/6943@{#1912})
+</msg>
+<msg time="2025-03-09T14:57:59.053290" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-03-09T14:58:00.034700" level="INFO">Created Chrome browser (version 133.0.6943) with arguments: --start-maximized --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg time="2025-03-09T14:58:00.034700" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: Webdriver executable 'chromedriver' is not in PATH (with disabled Selenium Manager)
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-03-09T14:58:00.034700" level="INFO">Opening url 'https://www.saucedemo.com/v1/'</msg>
+<arg>${urls}</arg>
+<arg>headless=${False}</arg>
+<arg>maximized=${True}</arg>
+<doc>Opens a Chrome browser.</doc>
+<status status="PASS" start="2025-03-09T14:57:57.691175" elapsed="3.177175"/>
+</kw>
+<kw name="Set up Browser" owner="My_kw">
+<kw name="Set Selenium Implicit Wait" owner="RPA.Browser.Selenium">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-03-09T14:58:00.870371" elapsed="0.005988"/>
+</kw>
+<kw name="Set Selenium Speed" owner="RPA.Browser.Selenium">
+<arg>0.5</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-03-09T14:58:00.876359" elapsed="0.001000"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="RPA.Browser.Selenium">
+<arg>${timeout}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-03-09T14:58:00.878357" elapsed="0.504576"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-09T14:58:06.383375" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-09T14:58:01.382933" elapsed="5.000442"/>
+</kw>
+<arg>30</arg>
+<status status="PASS" start="2025-03-09T14:58:00.868350" elapsed="5.515025"/>
+</kw>
+<kw name="Comment" owner="BuiltIn">
+<arg>Start Login</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" start="2025-03-09T14:58:06.383375" elapsed="0.000506"/>
+</kw>
+<kw name="Click And Input Text" owner="My_kw">
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-09T14:58:06.383881" elapsed="1.022456"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:07.407354" level="INFO">Clicking element 'css=#user-name'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:07.406337" elapsed="1.050385"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:08.458275" level="INFO">Typing text 'standard_user' into text field 'css=#user-name'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:08.457249" elapsed="1.567764"/>
+</kw>
+<arg>css=#user-name</arg>
+<arg>${username_real}</arg>
+<status status="PASS" start="2025-03-09T14:58:06.383881" elapsed="3.641132"/>
+</kw>
+<kw name="Click And Input Text" owner="My_kw">
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-09T14:58:10.025013" elapsed="1.016895"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:11.041908" level="INFO">Clicking element 'css=#password'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:11.041908" elapsed="1.046113"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:12.090237" level="INFO">Typing text 'secret_sauce' into text field 'css=#password'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:12.089233" elapsed="1.563951"/>
+</kw>
+<arg>css=#password</arg>
+<arg>${real_pw}</arg>
+<status status="PASS" start="2025-03-09T14:58:10.025013" elapsed="3.628171"/>
+</kw>
+<kw name="Click Btn" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:13.658238" elapsed="0.512279"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:14.173271" level="INFO">Clicking '//input[@class="btn_action"]' using an action chain.</msg>
+<arg>${element}</arg>
+<arg>action_chain=${True}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:14.171149" elapsed="3.272744"/>
+</kw>
+<arg>element=//input[@class="btn_action"]</arg>
+<status status="PASS" start="2025-03-09T14:58:13.656233" elapsed="3.787660"/>
+</kw>
+<kw name="Comment" owner="BuiltIn">
+<arg>Get all product info</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" start="2025-03-09T14:58:17.443893" elapsed="0.000000"/>
+</kw>
+<kw name="Get Element Count" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:17.951523" level="INFO">${LST_SP} = 6</msg>
+<var>${LST_SP}</var>
+<arg>xpath=//div[@class="inventory_item"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:17.443893" elapsed="0.507630"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${LST_SP}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:17.951523" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:17.952528" elapsed="0.507181"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:19.479514" level="INFO">${text} = Sauce Labs Backpack</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:18.459709" elapsed="1.019805"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:19.480618" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:19.480618" level="INFO">${name} = Sauce Labs Backpack</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:17.952528" elapsed="1.529090"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:19.481618" elapsed="0.001431"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:19.484147" elapsed="0.514731"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:21.024318" level="INFO">${text} = $29.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:19.999388" elapsed="1.024930"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:21.024318" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:21.024318" level="INFO">${price} = $29.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:19.483049" elapsed="1.542276"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:21.025325" elapsed="0.000000"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2025-03-09T14:58:17.952528" elapsed="3.072797"/>
+</iter>
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:21.026325" elapsed="0.514412"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:22.553854" level="INFO">${text} = Sauce Labs Bike Light</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:21.540737" elapsed="1.013117"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:22.553854" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:22.553854" level="INFO">${name} = Sauce Labs Bike Light</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:21.026325" elapsed="1.527529"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:22.553854" elapsed="0.001054"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:22.554908" elapsed="0.507599"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:24.083699" level="INFO">${text} = $9.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:23.063539" elapsed="1.020160"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:24.084772" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:24.085780" level="INFO">${price} = $9.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:22.554908" elapsed="1.530872"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:24.085780" elapsed="0.001007"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2025-03-09T14:58:21.026325" elapsed="3.060462"/>
+</iter>
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:24.088783" elapsed="0.516915"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:25.622095" level="INFO">${text} = Sauce Labs Bolt T-Shirt</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:24.605698" elapsed="1.016397"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:25.623142" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:25.624133" level="INFO">${name} = Sauce Labs Bolt T-Shirt</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:24.087787" elapsed="1.536346"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:25.625129" elapsed="0.000813"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:25.627976" elapsed="0.515391"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:27.161001" level="INFO">${text} = $15.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:26.143367" elapsed="1.017634"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:27.161001" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:27.162011" level="INFO">${price} = $15.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:25.626979" elapsed="1.535032"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:27.162011" elapsed="0.001520"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-03-09T14:58:24.087787" elapsed="3.075744"/>
+</iter>
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:27.165801" elapsed="0.518845"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:28.699260" level="INFO">${text} = Sauce Labs Fleece Jacket</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:27.684646" elapsed="1.014614"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:28.699260" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:28.699260" level="INFO">${name} = Sauce Labs Fleece Jacket</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:27.164776" elapsed="1.534484"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:28.699260" elapsed="0.000000"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:28.700263" elapsed="0.507414"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:30.219851" level="INFO">${text} = $49.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:29.207677" elapsed="1.012174"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:30.219851" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:30.219851" level="INFO">${price} = $49.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:28.699260" elapsed="1.520591"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:30.219851" elapsed="0.000000"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-03-09T14:58:27.163531" elapsed="3.057324"/>
+</iter>
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:30.220855" elapsed="0.508337"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:31.750629" level="INFO">${text} = Sauce Labs Onesie</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:30.729192" elapsed="1.021437"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:31.751561" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:31.751561" level="INFO">${name} = Sauce Labs Onesie</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:30.220855" elapsed="1.530706"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:31.753430" elapsed="0.000768"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:31.756298" elapsed="0.522923"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:33.316441" level="INFO">${text} = $7.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:32.280248" elapsed="1.036193"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:33.316441" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:33.316441" level="INFO">${price} = $7.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:31.755298" elapsed="1.561143"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:33.316441" elapsed="0.000000"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2025-03-09T14:58:30.220855" elapsed="3.095586"/>
+</iter>
+<iter>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:33.317445" elapsed="0.507835"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:34.836337" level="INFO">${text} = Test.allTheThings() T-Shirt (Red)</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:33.825280" elapsed="1.011057"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:34.836337" elapsed="0.001032"/>
+</return>
+<msg time="2025-03-09T14:58:34.837369" level="INFO">${name} = Test.allTheThings() T-Shirt (Red)</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:58:33.317445" elapsed="1.519924"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:34.837369" elapsed="0.001002"/>
+</kw>
+<kw name="Get text Element" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:58:34.839946" elapsed="0.513777"/>
+</kw>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:58:36.371007" level="INFO">${text} = $15.99</msg>
+<var>${text}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:58:35.353723" elapsed="1.017284"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-03-09T14:58:36.371979" elapsed="0.000000"/>
+</return>
+<msg time="2025-03-09T14:58:36.372975" level="INFO">${price} = $15.99</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:58:34.838371" elapsed="1.534604"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:58:36.373493" elapsed="0.002033"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2025-03-09T14:58:33.316441" elapsed="3.059085"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${LST_SP}+1</value>
+<status status="PASS" start="2025-03-09T14:58:17.951523" elapsed="18.424003"/>
+</for>
+<kw name="Close Browser" owner="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-09T14:58:36.376595" elapsed="2.545170"/>
+</kw>
+<doc>""" Get all product info """</doc>
+<status status="PASS" start="2025-03-09T14:57:57.690175" elapsed="41.233171"/>
+</test>
+<kw name="Close All Browsers" owner="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-03-09T14:58:38.926321" elapsed="0.000994"/>
+</kw>
+<status status="PASS" start="2025-03-09T14:57:57.177287" elapsed="41.750028"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Comeback" id="s1" pass="1" fail="0" skip="0">Comeback</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

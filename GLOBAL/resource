@@ -1,0 +1,224 @@
+*** Settings ***
+Library           Collections
+Library           DateTime
+Library           OperatingSystem
+Library           Process
+Library           String
+Library           Dialogs
+Library           ../Tai_lib/MyWebAuto.py
+Library           ../Tai_lib/MyExcel.py
+Library           RPA.Excel.Files
+
+*** Variables ***
+${image_path}     N:\\My Drive\\Projects\\src\\THIENCREQA\\Folder_images\\web_game
+${File_Excel_Path}    N:\\My Drive\\Projects\\UPDATE_TOOLS\\team_games.xlsx
+${URL_SUN}        ${EMPTY}
+${URL_MAN}        ${EMPTY}
+${URL_789}        ${EMPTY}
+
+*** Keywords ***
+OpenBrowserProfile
+    ${profile}    Set Variable    D:\\OutputThien\\Report_Raw\\profile\\Profile_Taophieu
+    # ${binary} \ \ \ Set Variable \ \ \ "N:\\My Drive\\Projects\\src\\TAICREQA\\chrome\\chrome.exe"    \    \    options=add_argument("enable-automation");add_argument("--mute-audio");add_argument("--disable-popup-blocking");add_argument("--disable-notifications");add_argument("--no-sandbox");add_argument("--ignore-certificate-errors");add_argument("--user-data-dir\=${profile}")
+    Open Browser    https://google.com    gc    executable_path=D:\\Lam_report\\chromedriver\\chromedriver.exe    options=add_argument("enable-automation");add_argument("--mute-audio");add_argument("--disable-popup-blocking");add_argument("--disable-notifications");add_argument("--no-sandbox");add_argument("--ignore-certificate-errors");add_argument("--user-data-dir\=${profile}")
+    sleep    5
+    Maximize Browser Window
+    Delete All Cookies
+    Set Selenium Timeout    30
+    ${Domain_SUN}    Get Data Excel    SunWin
+    ${Domain_SUN}    Set Variable    https://${Domain_SUN}[URL]
+    ${URL_SUN}    Get Variable Value    ${Domain_SUN}
+    Set Global Variable    ${URL_SUN}
+    ${Domain_789}    Get Data Excel    789
+    ${Domain_789}    Set Variable    https://${Domain_789}[URL]
+    ${URL_789}    Get Variable Value    ${Domain_789}
+    Set Global Variable    ${URL_789}
+    ${Domain_MAN}    Get Data Excel    Man Club
+    ${Domain_MAN}    Set Variable    https://${Domain_MAN}[URL]
+    ${URL_MAN}    Get Variable Value    ${Domain_MAN}
+    Set Global Variable    ${URL_MAN}
+
+Template_Check
+    [Arguments]    ${browser_brand}    ${brand}
+    Go To    ${browser_brand}
+    Set Global Variable    ${brand}
+    Set Global Variable    ${browser_brand}
+    Reload Page
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    30
+    ${value_keyword}    Get Variable Value    ${name_keyword}
+    IF    "man" in "${browser_brand}"
+    Comment    ${check_warning}    Wait For Image OpenCV    ${image_path}\\${brand}\\warning.PNG    timeout=5
+    Comment    Run Keyword And Return Status    Check Img and Click X Y    ${check_warning}
+    My Login Man    Man
+    END
+    run keyword if    "Nap" in "${TEST_NAME}"    Phieu Nap    ${brand}
+    run keyword if    "Rut" in "${TEST_NAME}"    Phieu Rut    ${brand}
+    [Teardown]
+
+Check Img and Click X Y
+    [Arguments]    ${check_button}
+    [Documentation]    Keyword only work with Wait For Image OpenCV
+    run keyword if    "${check_button}" == "False"    FAIL
+    IF    "${check_button}[0]" > "0.7"
+    Click Canvas By X Y    ${check_button}[1]    ${check_button}[2]
+    ELSE
+    FAIL
+    END
+
+Teardown For Check Nap
+    IF    "${KEYWORD_STATUS}" == "FAIL"
+    ${url}    get location
+    Capture Page Screenshot    D:\\OutputThien\\Report_Raw\\img_failed\\${TEST_NAME}\\${brand}.png
+    Append To File    D:\\OutputThien\\Report_Raw\\img_failed\\${TEST_NAME}\\tao_check_nap.txt    ${browser_brand} - > FAILED phiếu nạp\n
+    END
+
+Teardown For Check Rut
+    IF    "${KEYWORD_STATUS}" == "FAIL"
+    ${url}    get location
+    Capture Page Screenshot    D:\\OutputThien\\Report_Raw\\img_failed\\${TEST_NAME}\\${brand}.png
+    Append To File    D:\\OutputThien\\Report_Raw\\img_failed\\${TEST_NAME}\\tao_check_rut.txt    ${browser_brand} - > FAILED phiếu rút\n
+    END
+
+Create File For First Run
+    Empty Directory    D:/OutputThien/Report_Raw/img_failed/Check Phieu Nap/
+    Empty Directory    D:/OutputThien/Report_Raw/img_failed/Check Phieu Rut/
+    Set Selenium Speed    0.5
+
+Phieu Nap
+    [Arguments]    ${brand}
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    10
+    sleep    3
+    ${Check_img_1}    Wait For Image OpenCV    ${image_path}\\${brand}\\nap_btn.PNG
+    Check Img and Click X Y    ${Check_img_1}
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    15
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    15
+    ${Check_img_2}    Wait For Image OpenCV    ${image_path}\\${brand}\\nh_btn.PNG
+    Check Img and Click X Y    ${Check_img_2}
+    ${Check_img_3}    Wait For Image OpenCV    ${image_path}\\${brand}\\choose_NH.PNG
+    Check Img and Click X Y    ${Check_img_3}
+    ${Check_img_4}    Wait For Image OpenCV    ${image_path}\\${brand}\\nap_nh_dautien.PNG
+    Check Img and Click X Y    ${Check_img_4}
+    ${Check_img_5}    Wait For Image OpenCV    ${image_path}\\${brand}\\phuongthuc.PNG
+    Check Img and Click X Y    ${Check_img_5}
+    ${Check_img_6}    Wait For Image OpenCV    ${image_path}\\${brand}\\internet_banking.PNG
+    Check Img and Click X Y    ${Check_img_6}
+    Check img and input data    ${image_path}\\${brand}\\sotien.PNG    50000
+    Check img and input data    ${image_path}\\${brand}\\nguoigui.PNG    Testervn
+    Check img and input data    ${image_path}\\${brand}\\ghichu.PNG    Check tạo phiếu nạp ảo
+    ${Check_img_7}    Wait For Image OpenCV    ${image_path}\\${brand}\\naptien_sub.PNG
+    Check Img and Click X Y    ${Check_img_7}
+    ${Check_img_8}    Wait For Image OpenCV    ${image_path}\\${brand}\\thongbao_nap.PNG    timeout=10
+    IF    "${Check_img_8}[0]" < "0.7"
+    FAIL
+    END
+    [Teardown]    Teardown For Check Nap
+
+Check img and input data
+    [Arguments]    ${imge_location}    ${value}
+    ${Check_img}    Wait For Image OpenCV    ${imge_location}
+    Check Img and Click X Y    ${Check_img}
+    Set Selenium Speed    1 seconds
+    Set Selenium Implicit Wait    1 seconds
+    Press Keys    None    ${value}
+
+Phieu Rut
+    [Arguments]    ${brand}
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    10
+    Sleep    3
+    ${Check_img_1}    Wait For Image OpenCV    ${image_path}\\${brand}\\rut_btn.PNG
+    Check Img and Click X Y    ${Check_img_1}
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    15
+    TuchoihetBtn    ${image_path}\\${brand}\\tuchoihet.PNG    15
+    IF    "MAN" in "${brand}"
+    ${Check_img_MAN}    Wait For Image OpenCV    ${image_path}\\${brand}\\rut_nh_btn.PNG
+    Check Img and Click X Y    ${Check_img_MAN}
+    #Này là để check xem có mở đúng tab ngân hàng hay không (brand man)
+    ${check_tab_nh}    Wait For Image OpenCV    ${image_path}\\${brand}\\sai_tab_nh.png    timeout=10
+    Run Keyword If    '${check_tab_nh}'=='True' or ${check_tab_nh}[0] > 0.8    Check Img and Click X Y    ${check_tab_nh}
+    ELSE
+    ${Check_img_2}    Wait For Image OpenCV    ${image_path}\\${brand}\\nh_btn.PNG    timeout=60
+    Check Img and Click X Y    ${Check_img_2}
+    END
+    ${Check_img_3}    Wait For Image OpenCV    ${image_path}\\${brand}\\rut_choose_NH.PNG
+    Check Img and Click X Y    ${Check_img_3}
+    ${Check_img_4}    Wait For Image OpenCV    ${image_path}\\${brand}\\nh_dautien.PNG
+    Check Img and Click X Y    ${Check_img_4}
+    Check img and input data    ${image_path}\\${brand}\\sotaikhoan.PNG    00000
+    Check img and input data    ${image_path}\\${brand}\\tentaikhoan.PNG    Testervn
+    Check img and input data    ${image_path}\\${brand}\\sotienrut.PNG    200000
+    ${Check_img_5}    Wait For Image OpenCV    ${image_path}\\${brand}\\ruttien_sub.PNG
+    Check Img and Click X Y    ${Check_img_5}
+    ${Check_img_6}    Wait For Image OpenCV    ${image_path}\\${brand}\\thongbao_rut.PNG    timeout=10
+    IF    "${Check_img_6}[0]" < "0.7"
+    FAIL
+    END
+    [Teardown]    Teardown For Check Rut
+
+DelFolderImgAndCloseAllBrowser
+    Del Folder Image
+    Close All Browsers
+
+TuchoihetBtn
+    [Arguments]    ${img_path}    ${timeout}
+    ${tuchoihet}    Wait For Image OpenCV    ${img_path}    timeout=${timeout}
+    run keyword and return status    Check Img and Click X Y    ${tuchoihet}
+
+Get Data Excel
+    [Arguments]    ${Brand}
+    ${get_data}    read_Sheet_Excel    Tool Canvas
+    FOR    ${data}    IN    @{get_data}
+        IF    "${Brand}" in "${data}"
+        ${url}    Set Variable    ${data}
+        Set Global Variable    ${url}
+        Exit For Loop
+    END
+    END
+    [Return]    ${url}
+
+Read Sheet Excel
+    [Arguments]    ${sheet}
+    Open Workbook    ${File_Excel_Path}
+    ${sheet}    Read Worksheet As Table    ${sheet}    header=True
+    Close Workbook
+    [Return]    ${sheet}
+
+Get Url
+    [Arguments]    ${data}    ${desired data}
+    Comment    ${domain}    Set Variable    ${data}[URL]
+    IF    "${desired data}" == "SunWin"
+    ${true_data}    Set Variable    ${domain}[URL]
+    END
+    [Return]    ${true_data}
+
+My Login Man
+    [Arguments]    ${brand}
+    [Documentation]    ${brand}: 789/ MAN/ SUN
+    #verify login status
+    Comment    Log To Console    ${image_path}\\${brand}\\logged_status.PNG
+    ${login_result}    Wait For Image OpenCV    ${image_path}\\${brand}\\logged_status.PNG
+    IF    '${login_result}'=='False' or ${login_result}[0] < 0.8
+        My Click Image    ${image_path}\\${brand}\\login_btn.PNG    timeout=60
+        Sleep    1s
+        My Click Image    ${image_path}\\${brand}\\input_ID.PNG    timeout=5
+        Sleep    1s
+        Press Keys    None    cq4mthienthien    #live/ debug    cq4ataccess    cq4atstream02
+        My Click Image    ${image_path}\\${brand}\\input_PW.PNG    timeout=5
+        Sleep    1s
+        Press Keys    None    taicrequa321    #live/ debug    taicrequa321    Auto123@123
+        My Click Image    ${image_path}\\${brand}\\login_submit_btn.PNG    timeout=5
+        Sleep    2s
+        My Click Image    ${image_path}\\${brand}\\tuchoihet.PNG    timeout=60
+        Sleep    2s
+        ${login_result}    Wait For Image OpenCV    ${image_path}\\${brand}\\logged_status.PNG
+        IF    '${login_result}' == 'False'
+            Fail
+        END
+    END
+
+My Click Image
+    [Arguments]    ${img_path}    ${timeout}
+    [Documentation]    Ex: img_path = ${image_path}\\${brand}\\warning.PNG
+    ...
+    ...    ${timeout} = 5
+    ${check_result}    Wait For Image OpenCV    ${img_path}    timeout=${timeout}
+    Run Keyword And Return Status    Check Img and Click X Y    ${check_result}

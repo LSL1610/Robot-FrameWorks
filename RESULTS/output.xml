@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.4 on win32)" generated="2025-03-09T14:23:09.137880" rpa="false" schemaversion="5">
+<suite id="s1" name="Demo" source="D:\demo">
+<suite id="s1-s1" name="TESTS" source="D:\demo\TESTS">
+<suite id="s1-s1-s1" name="Comeback" source="D:\demo\TESTS\comeback.robot">
+<test id="s1-s1-s1-t1" name="Get All Product Info" line="38">
+<kw name="Open Chrome Browser" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:11.438597" level="INFO">Downloaded webdriver to: C:\Users\ADMIN\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win64\133.0.6943.141\chromedriver-win32/chromedriver.exe</msg>
+<msg time="2025-03-09T14:23:11.455618" level="INFO">Webdriver version taken into use: ChromeDriver 133.0.6943.141 (2a5d6da0d6165d7b107502095a937fe7704fcef6-refs/branch-heads/6943@{#1912})
+</msg>
+<msg time="2025-03-09T14:23:11.455618" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-03-09T14:23:12.435320" level="INFO">Created Chrome browser (version 133.0.6943) with arguments: --start-maximized --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg time="2025-03-09T14:23:12.435320" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: Webdriver executable 'chromedriver' is not in PATH (with disabled Selenium Manager)
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-03-09T14:23:12.436320" level="INFO">Opening url 'https://www.saucedemo.com/v1/'</msg>
+<arg>${urls}</arg>
+<arg>headless=${False}</arg>
+<arg>maximized=${True}</arg>
+<doc>Opens a Chrome browser.</doc>
+<status status="PASS" start="2025-03-09T14:23:09.813352" elapsed="5.304962"/>
+</kw>
+<kw name="Set up Browser" owner="My_kw">
+<kw name="Set Selenium Implicit Wait" owner="RPA.Browser.Selenium">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-03-09T14:23:15.119825" elapsed="0.001005"/>
+</kw>
+<kw name="Set Selenium Speed" owner="RPA.Browser.Selenium">
+<arg>0.5</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-03-09T14:23:15.120830" elapsed="0.000000"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="RPA.Browser.Selenium">
+<arg>${timeout}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-03-09T14:23:15.120830" elapsed="0.502062"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-09T14:23:20.622970" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-09T14:23:15.622892" elapsed="5.000078"/>
+</kw>
+<arg>30</arg>
+<status status="PASS" start="2025-03-09T14:23:15.119319" elapsed="5.503651"/>
+</kw>
+<kw name="Comment" owner="BuiltIn">
+<arg>Start Login</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" start="2025-03-09T14:23:20.622970" elapsed="0.001004"/>
+</kw>
+<kw name="Click And Input Text" owner="My_kw">
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-09T14:23:20.623974" elapsed="1.017110"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:21.641084" level="INFO">Clicking element 'css=#user-name'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:21.641084" elapsed="1.070128"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:22.711212" level="INFO">Typing text 'standard_user' into text field 'css=#user-name'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:22.711212" elapsed="1.567634"/>
+</kw>
+<arg>css=#user-name</arg>
+<arg>${username_real}</arg>
+<status status="PASS" start="2025-03-09T14:23:20.623974" elapsed="3.654872"/>
+</kw>
+<kw name="Click And Input Text" owner="My_kw">
+<kw name="Wait Until Element Is Visible" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-09T14:23:24.279853" elapsed="1.020199"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:25.300052" level="INFO">Clicking element 'css=#password'.</msg>
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:25.300052" elapsed="1.043016"/>
+</kw>
+<kw name="Input Text" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:26.348636" level="INFO">Typing text 'secret_sauce' into text field 'css=#password'.</msg>
+<arg>${element}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:26.346033" elapsed="1.562486"/>
+</kw>
+<arg>css=#password</arg>
+<arg>${real_pw}</arg>
+<status status="PASS" start="2025-03-09T14:23:24.278846" elapsed="3.629673"/>
+</kw>
+<kw name="Click Btn" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:23:27.908519" elapsed="0.510479"/>
+</kw>
+<kw name="Click Element" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:28.419503" level="INFO">Clicking '//input[@class="btn_action"]' using an action chain.</msg>
+<arg>${element}</arg>
+<arg>action_chain=${True}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:28.418998" elapsed="10.205469"/>
+</kw>
+<arg>element=//input[@class="btn_action"]</arg>
+<status status="PASS" start="2025-03-09T14:23:27.908519" elapsed="10.715948"/>
+</kw>
+<kw name="Comment" owner="BuiltIn">
+<arg>Get all product info</arg>
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<status status="PASS" start="2025-03-09T14:23:38.625485" elapsed="0.000000"/>
+</kw>
+<kw name="Get Element Count" owner="RPA.Browser.Selenium">
+<msg time="2025-03-09T14:23:39.141069" level="INFO">${LST_SP} = 6</msg>
+<var>${LST_SP}</var>
+<arg>xpath=//div[@class="inventory_item"]</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:38.626480" elapsed="0.514589"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${LST_SP}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:23:39.141069" elapsed="0.001169"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${i}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-03-09T14:23:39.143280" elapsed="0.000000"/>
+</kw>
+<kw name="Get Element text" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:23:39.144234" elapsed="0.507945"/>
+</kw>
+<kw name="Get Element Attribute" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>text</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:39.652179" elapsed="1.019964"/>
+</kw>
+<msg time="2025-03-09T14:23:40.672143" level="INFO">${name} = None</msg>
+<var>${name}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[2]/a/div</arg>
+<status status="PASS" start="2025-03-09T14:23:39.143280" elapsed="1.528863"/>
+</kw>
+<kw name="Get Element text" owner="My_kw">
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-03-09T14:23:40.673206" elapsed="0.507208"/>
+</kw>
+<kw name="Get Element Attribute" owner="RPA.Browser.Selenium">
+<arg>${element}</arg>
+<arg>text</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2025-03-09T14:23:41.180414" elapsed="1.017685"/>
+</kw>
+<msg time="2025-03-09T14:23:42.198099" level="INFO">${price} = None</msg>
+<var>${price}</var>
+<arg>xpath=//div[@class="inventory_item"][${i}]/div[3]/div</arg>
+<status status="PASS" start="2025-03-09T14:23:40.672143" elapsed="1.526981"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<msg time="2025-03-09T14:23:42.202107" level="FAIL">AttributeError: 'NoneType' object has no attribute 'lower'</msg>
+<arg>${name}</arg>
+<arg>${price}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="FAIL" start="2025-03-09T14:23:42.201107" elapsed="0.001998">AttributeError: 'NoneType' object has no attribute 'lower'</status>
+</kw>
+<var name="${i}">1</var>
+<status status="FAIL" start="2025-03-09T14:23:39.143280" elapsed="3.059825">AttributeError: 'NoneType' object has no attribute 'lower'</status>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${LST_SP}+1</value>
+<status status="FAIL" start="2025-03-09T14:23:39.142238" elapsed="3.060867">AttributeError: 'NoneType' object has no attribute 'lower'</status>
+</for>
+<kw name="Close Browser" owner="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-09T14:23:42.203105" elapsed="2.561566"/>
+</kw>
+<doc>""" Get all product info """</doc>
+<status status="FAIL" start="2025-03-09T14:23:09.812351" elapsed="34.952970">AttributeError: 'NoneType' object has no attribute 'lower'</status>
+</test>
+<kw name="Close All Browsers" owner="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-03-09T14:23:44.766329" elapsed="0.001508"/>
+</kw>
+<status status="FAIL" start="2025-03-09T14:23:09.161457" elapsed="35.607397"/>
+</suite>
+<status status="FAIL" start="2025-03-09T14:23:09.159457" elapsed="35.611394"/>
+</suite>
+<status status="FAIL" start="2025-03-09T14:23:09.140435" elapsed="35.631417"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Demo" id="s1" pass="0" fail="1" skip="0">Demo</stat>
+<stat name="TESTS" id="s1-s1" pass="0" fail="1" skip="0">Demo.TESTS</stat>
+<stat name="Comeback" id="s1-s1-s1" pass="0" fail="1" skip="0">Demo.TESTS.Comeback</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
